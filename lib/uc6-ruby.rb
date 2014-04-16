@@ -1,0 +1,20 @@
+require 'date'
+require 'net/http'
+require 'net/https'
+require 'openssl'
+require 'multi_json'
+require 'json'
+require 'base64'
+
+require_relative './uc6-ruby/version' unless defined?(UC6::VERSION)
+require_relative './uc6-ruby/client' 
+require_relative './uc6-ruby/hashable' 
+require_relative './uc6-ruby/infrastructure'
+require_relative './uc6-ruby/nic'
+require_relative './uc6-ruby/machine'
+require_relative './uc6-ruby/disk'
+require_relative './uc6-ruby/readings/reading'
+require_relative './uc6-ruby/readings/nic'
+require_relative './uc6-ruby/readings/disk'
+require_relative './uc6-ruby/readings/machine'
+
