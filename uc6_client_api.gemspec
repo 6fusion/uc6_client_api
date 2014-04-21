@@ -5,7 +5,7 @@ PKG_FILES = FileList[
 ]
 
 Gem::Specification.new do |s|
-  s.name = "uc6-client-api"
+  s.name = "uc6_client_api"
   s.version = "0.1.0"
   s.summary = "Client library for interacting with the 6Fusion API."
   s.description = "A basic library for making the appropriate 6Fusion API calls"
