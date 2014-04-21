@@ -9,6 +9,7 @@ module UC6
     attr_accessor :agent_version
     attr_accessor :power_state
     attr_accessor :disks, :nics
+    attr_accessor :client, :readings
 
     def initialize(client, hash={})
       from_hash(hash)
@@ -37,12 +38,34 @@ module UC6
       @disks << disk
     end
 
+    def get_disk(disk_name)
+      @disks.each do |x|
+        return x if x.name == disk_name
+      end
+      return nil
+    end
+
     def add_nic(nic)
       @nics << nic
     end
 
+    def get_nic(nic_name)
+      @nics.each do |x|
+        return x if x.name == nic_name
+      end
+      return nil
+    end
+
     def add_reading(at, cpu, memory)
       @readings << Readings::Machine.new(at, cpu, memory)
+    end
+
+    def find_by_name(current_inf, name)
+      machlist = get()
+      machlist.each do |x|
+        return x if (x.name == name && x.infrastructure_id == current_inf.id)
+      end
+      return nil
     end
 
     def get(id=nil)
