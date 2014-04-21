@@ -61,6 +61,10 @@ module UC6
     def infrastructure()
       Infrastructure.new(self)
     end
+
+    def machine()
+      Machine.new(self)
+    end
   
     def reading()
       Readings::Reading.new(self)
