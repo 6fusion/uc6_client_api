@@ -12,6 +12,14 @@ module UC6
       from_hash(hash)
     end
 
+    def find_by_name(name)
+      infralist = get()
+      infralist.each do |x|
+        return x if x.name == name
+      end
+      return nil
+    end
+
     def get(id=nil)
       http_response = @client.make_request("get", REST_NOUN, REST_SUB_NOUN, id)
       response = http_response[:result]
