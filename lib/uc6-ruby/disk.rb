@@ -9,9 +9,13 @@ module UC6
       @readings = []
     end
 
-    def maximum_size_bytes=(val)
-      @maximum_size_bytes = 0 if (@type == "Disk")
-      @maximum_size_bytes = val
+    def maximum_size_bytes
+      return 0 if (@type == "CD")
+      return val
+    end
+
+    def type=(val)
+      @type = val if (val == 'Disk' or val == 'CD')
     end
 
     def add_reading(at, usage, read, write)
