@@ -82,7 +82,7 @@ module UC6
     end
 
     def get(id=nil, synch='false')
-      http_response = @client.make_request("get", REST_NOUN, REST_SUB_NOUN, id, synch)
+      http_response = @client.make_request("get", REST_NOUN, REST_SUB_NOUN, id, nil, synch)
       response = http_response[:result]
       return response if response.nil?
       if (response.kind_of?(Array))
