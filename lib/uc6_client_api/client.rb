@@ -56,7 +56,8 @@ module UC6
     def make_request(method, noun, sub_noun=nil, id=nil, body_data=nil, synchronous='false')
       path = @request_options[:host] + @request_options[:api_prefix] + "/#{noun}" + (!id.nil? ? "/#{id}" : '') 
       path = path + (!sub_noun.nil? ? "/#{sub_noun}" : '') 
-      path = path + "?synchronous=#{synchronous}"+ (:auth_token ? "&auth_token=#{auth_token}" : '')
+      path = path + "?synchronous=#{synchronous}"+ (:auth_token ? "&auth_token=#{auth_token}" : '') if (synchronous)
+      path = path + (:auth_token ? "?auth_token=#{auth_token}" : '') if (not synchronous)
 
       puts "Calling:     #{path}"
       response = @conn.send(method, path) do |req|
