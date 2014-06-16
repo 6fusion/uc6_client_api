@@ -108,8 +108,9 @@ module UC6
 
     def update()
       http_response = @client.make_request("put", REST_NOUN, REST_SUB_NOUN, id, self.to_hash)
-      response = http_response[:result]
-      Machine.new(@client, response)
+      # Update method only returns the status code.  So, we call back to the server to get the
+      # new instance of the machine.
+      Machine.get(self.id)
     end
   end
 end
