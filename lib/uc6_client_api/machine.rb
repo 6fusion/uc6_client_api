@@ -110,7 +110,7 @@ module UC6
       http_response = @client.make_request("put", REST_NOUN, REST_SUB_NOUN, id, self.to_hash)
       # Update method only returns the status code.  So, we call back to the server to get the
       # new instance of the machine.
-      get(self.id)
+      get(self.id, 'true')
     end
   end
 end
